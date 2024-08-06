@@ -16,7 +16,7 @@ class KVPZeroShotLLMAgent(KVPLLMAgent):
         self,
         information_scheme,
         model_name="GPT-4o",
-        temperature=0.2,
+        temperature=0.0,
         **kwargs,
     ) -> None:
         super().__init__(information_scheme, model_name, temperature, **kwargs)
