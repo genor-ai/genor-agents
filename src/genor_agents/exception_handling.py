@@ -1,0 +1,2 @@
+class InvalidDataScheme(Exception):
+    pass
