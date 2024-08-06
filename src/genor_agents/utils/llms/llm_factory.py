@@ -42,7 +42,7 @@ class OpenAIModel(LLM):
     def __init__(self, model_name: str):
         super().__init__(model_name)
         
-        with open(os.path.join('conf', 'local', 'credentials', 'azure_openai.yml' ), "r") as f:
+        with open(os.path.join('credentials', 'azure_openai.yml' ), "r") as f:
             credentials_dict = yaml.safe_load(f)
         self.api_key = credentials_dict['api_key']
         self.endpoint = credentials_dict['endpoint']
