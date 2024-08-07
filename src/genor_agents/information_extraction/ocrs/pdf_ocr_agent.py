@@ -101,11 +101,14 @@ class PDFOCRAgent(Agent):
             "metadata": {
                 "total_pages": total_pages,
                 "pages_analyzed": pages if pages else list(range(1, total_pages + 1)),
-            }
+            },
+            "raw_ocr_result": result,
+            "content": result.content.replace('\n', ' '),
+            "pages_content": {
+                page.page_number: " ".join([line.content for line in page.lines]) for page in result.pages
+            },
         }
-        for page in result.pages:
-            page_num = page.page_number
-            output[page_num] = [line.content for line in page.lines]
+        
         return output
 
     def _initialize_document_analysis_client(self):
